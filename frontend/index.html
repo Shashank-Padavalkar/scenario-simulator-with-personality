@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenario Simulator | AI Decision Intelligence</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Landing Section -->
+        <main id="landing-section" class="section active">
+            <header class="hero">
+                <div class="logo-badge">Decision Intelligence</div>
+                <h1>Scenario Simulator</h1>
+                <p>Simulate the potential outcomes of any decision using AI-powered Retrieval-Augmented Generation.</p>
+            </header>
+            
+            <div class="input-container glass-panel">
+                <textarea id="scenario-input" placeholder="Describe the decision or scenario you're facing... e.g. 'Should I leave my corporate job to build an AI startup?'" rows="5"></textarea>
+                <div class="controls">
+                    <select id="category-select" class="dropdown">
+                        <option value="General">General</option>
+                        <option value="Career">Career Track</option>
+                        <option value="Business">Business Strategy</option>
+                        <option value="Personal">Personal Finance</option>
+                    </select>
+                    <button id="simulate-btn" class="primary-btn">
+                        <span class="btn-text">Simulate Outcomes</span>
+                        <span class="loader hidden"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Loading Overlay within Landing -->
+            <div id="loading-state" class="hidden">
+                <div class="spinner"></div>
+                <p class="pulsate">AI is analyzing knowledge bases and computing outcomes...</p>
+            </div>
+        </main>
+
+        <!-- Simulation Result Dashboard -->
+        <section id="results-section" class="section hidden">
+            <header class="dashboard-header">
+                <button id="back-btn" class="secondary-btn">&larr; New Scenario</button>
+                <h2>Simulation Results</h2>
+            </header>
+            
+            <div class="scenario-summary glass-panel">
+                <h3>Scenario</h3>
+                <p id="scenario-text-display"></p>
+                <span id="scenario-category-badge" class="badge"></span>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Most Likely (Full Width) -->
+                <div class="card most-likely-card full-width">
+                    <div class="card-header">
+                        <span class="icon">🧭</span>
+                        <h3>Most Likely Outcome</h3>
+                    </div>
+                    <p id="result-most-likely" class="content-text"></p>
+                </div>
+
+                <!-- Best Case -->
+                <div class="card best-case-card">
+                    <div class="card-header">
+                        <span class="icon">📈</span>
+                        <h3>Best Case</h3>
+                    </div>
+                    <p id="result-best-case" class="content-text"></p>
+                </div>
+
+                <!-- Worst Case -->
+                <div class="card worst-case-card">
+                    <div class="card-header">
+                        <span class="icon">📉</span>
+                        <h3>Worst Case</h3>
+                    </div>
+                    <p id="result-worst-case" class="content-text"></p>
+                </div>
+
+                <!-- Risks and Charts -->
+                <div class="card risks-card">
+                    <div class="card-header">
+                        <span class="icon">⚠️</span>
+                        <h3>Key Risks</h3>
+                    </div>
+                    <ul id="result-risks" class="list-group"></ul>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="card recommendations-card">
+                    <div class="card-header">
+                        <span class="icon">💡</span>
+                        <h3>Recommendations</h3>
+                    </div>
+                    <ul id="result-recommendations" class="list-group"></ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

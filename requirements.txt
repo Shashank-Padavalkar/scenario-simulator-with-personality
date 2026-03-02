@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+google-genai
+chromadb
+pydantic
+pydantic-settings
+python-dotenv
+numpy<2.0.0
